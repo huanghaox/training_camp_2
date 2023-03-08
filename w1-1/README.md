@@ -1,5 +1,5 @@
 ## 1 创建账号
->![创建账号]("https://github.com/huanghaox/upchaincamp/tree/main/w1-1/创建账号.png" "创建账号")
+>![创建账号]("https://github.com/huanghaox/upchaincamp/tree/main/w1-1/account.png" "创建账号")
 ## 2 Goerli Transaction Hash
 >0x6afb10bd53d416051563a50b80057889eb24e7d8273e37639769ae5da0a7a34a
 ## 3 Goerli Deploy 
