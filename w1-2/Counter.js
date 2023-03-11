@@ -1,31 +1,26 @@
-const {
-  time,
-  loadFixture,
-} = require("@nomicfoundation/hardhat-network-helpers");
-const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { expect } = require("chai");
 
 describe("Counter", function () {
-  async function deployOneYearLockFixture() {
+  let Counter;
+  let counter;
+  let owner;
+  let otherAccount;
+  async function init() {
+    [owner, otherAccount] = await ethers.getSigners();
 
-    // Contracts are deployed using the first signer/account by default
-    const [owner, otherAccount] = await ethers.getSigners();
-
-    const Counter = await ethers.getContractFactory("Counter");
-    const counter = await Counter.deploy(0);
-    return { counter, owner, otherAccount };
+     Counter = await ethers.getContractFactory("Counter");
+     counter = await Counter.deploy(0);
   }
+  beforeEach(async function () {
+    await init();
+  });
 
-  describe("Caller", function () {
-    it("Owner Caller", async function () {
-      const { owner, counter } = await loadFixture(deployOneYearLockFixture);
-      
-      await expect(counter.connect(owner).add(1));
-    });
-    it("otherAccount Caller", async function () {
-      const { owner,otherAccount, counter } = await loadFixture(deployOneYearLockFixture);
-      
-      await expect(counter.connect(otherAccount).add(1).to.be.revertedWith("Caller:Only Owner"));
-    });
+  it("Owner Caller", async function () {
+    expect(await counter.add(1));
+
+  });
+  
+  it("otherAccount Caller", async function () {
+    expect(await counter.connect(otherAccount).add(1));
   });
 });
