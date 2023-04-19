@@ -6,6 +6,7 @@ async function main() {
   const ERC20SIMONV1 = await ethers.getContractFactory("ERC20SimonV1");
   const ERC20simonv1 = await ERC20SIMONV1.deploy();
   await ERC20simonv1.deployed();
+  await ERC20simonv1.initialize();
     
 
   console.log(`MyERC20: npx hardhat verify ${ERC20simonv1.address} `);
