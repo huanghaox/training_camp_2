@@ -1,6 +1,5 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
-
-
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
 
@@ -8,7 +7,7 @@ interface TokenRecipient {
     function tokensReceived(address sender, uint amount) external returns (bool);
 }
 
-contract MyERC20V2 is ERC20Upgradeable {
+contract ERC20SimonV2 is ERC20Upgradeable {
 
       using AddressUpgradeable for address;
 
