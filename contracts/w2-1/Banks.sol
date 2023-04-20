@@ -1,7 +1,7 @@
 //SPDX-License-Identifier:MIT
 pragma solidity ^0.8.0;
 
-contract Bank {
+contract Banks {
     address payable public owner;
     mapping(address => uint256) deposits;
     event TransferEvent(address from, address to, uint256 amount);
